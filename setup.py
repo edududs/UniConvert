@@ -1,6 +1,4 @@
 from setuptools import setup, find_packages
-from dotenv import load_dotenv
-load_dotenv()
 
 setup(
     name="conversores_dudu",
