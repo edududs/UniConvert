@@ -1,11 +1,13 @@
 from setuptools import setup, find_packages
 
+with open("requirements.txt", "r") as f:
+    requirements = f.read()
+
 setup(
     name="conversores_dudu",
     version="0.1",
     packages=find_packages(),
     install_requires=[
-        "Pillow>=10.1.0",
-        "types-Pillow>=10.1.0.2",
+        requirements
     ],
 )
