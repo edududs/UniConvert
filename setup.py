@@ -4,8 +4,8 @@ with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 setup(
-    name="conversores_dudu",
-    version="0.0.2",
+    name="UniConvert",
+    version="0.1",
     packages=find_packages(),
     install_requires=[
         "certifi==2023.11.17",

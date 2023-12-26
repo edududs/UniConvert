@@ -1,5 +1,4 @@
 /.mypy*
-/conversores_dudu.egg-info
 /env
 .env
 __pycache__
