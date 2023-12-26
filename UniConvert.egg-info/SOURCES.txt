@@ -6,5 +6,6 @@ UniConvert.egg-info/dependency_links.txt
 UniConvert.egg-info/requires.txt
 UniConvert.egg-info/top_level.txt
 uniconvert/__init__.py
+uniconvert/base_converters.py
 uniconvert/converters.py
 uniconvert/utils.py

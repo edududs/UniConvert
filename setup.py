@@ -1,11 +1,16 @@
-from setuptools import setup, find_packages
+from setuptools import find_packages, setup
+
+from move_dist import move_dist
+
+version = "0.1.3"
+name = "UniConvert"
 
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 setup(
-    name="UniConvert",
-    version="0.1.1",
+    name=name,
+    version=version,
     packages=find_packages(),
     install_requires=[
         "certifi==2023.11.17",
@@ -45,6 +50,9 @@ setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
 )
+
+move_dist(version)
+
 """
 "certifi==2023.11.17"
 "charset-normalizer==3.3.2"

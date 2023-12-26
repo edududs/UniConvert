@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from templates.base_converters import BaseIMGConverter, BaseVideoConverter
+from base_converters import BaseIMGConverter, BaseVideoConverter
 
 
 class PNGConverter(BaseIMGConverter):
@@ -148,10 +148,3 @@ class GPPConverter(BaseVideoConverter):
         target_format = "3GPP"
         return super().convert(file_path, target_format, replace)
 
-
-if __name__ == "__main__":
-    converter = MP4Converter()
-    converter.convert(
-        r"C:\Users\Eduardo Lima\Documents\League of Legends\Highlights\13-22_BR1-2834931132_01.webm",
-        replace=True,
-    )
