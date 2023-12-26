@@ -6,14 +6,19 @@ Welcome to the UniConvert Library documentation! The UniConvert Library is a Pyt
 - **Image Conversion**: Convert images to the PNG, JPEG, WEBP, BMP, JPG, PDF, GIF and TIFF formats.
 - **Video Conversion**: Convert videos to the MP4, AVI, MOV, 3GPP, FLV, WMV, MPG, WEBM and MKV formats.
 
+## Requirements
+- Python 3.7 or higher
+- FFmpeg
+
 ## How to Use
 
 1. Install the library: ``pip install uniconvert``
-2. Import the relevant converters in your Python script.
-3. Create instances of the converters and use their convert methods to perform conversions.
+2. Make sure you have installed FFmpeg
+3. Import the relevant converters in your Python script.
+4. Create instances of the converters and use their convert methods to perform conversions.
 
 
-A seguir, apresentamos exemplos básicos de uso:
+Below we present basic examples of use:
 
 ### Conversion of Images
 ```bash
