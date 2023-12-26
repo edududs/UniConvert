@@ -171,7 +171,7 @@ class BaseVideoConverter(ConverterMixin):
     CODECS = (
         ("MP4", "libx264"),
         ("WEBM", "libvpx"),
-        ("MOV", "mov"),
+        ("MOV", "libx264"),
         ("MPEG-1", "mpeg1video"),
         ("MPEG-2", "mpeg2video"),
         ("MPG", "mpeg2video"),
@@ -180,7 +180,8 @@ class BaseVideoConverter(ConverterMixin):
         ("AVI", "msmpeg4"),
         ("WMV", "wmv2"),
         ("FLV", "flv"),
-        ("3GPP", "h263p"),
+        ("3GPP", "h263"),
+        ("MKV", "libx264"),
     )
 
     def convert(
@@ -235,4 +236,3 @@ class BaseVideoConverter(ConverterMixin):
                 return extension[1]
 
         raise ValueError(f"Formato {selected_format} não suportado.")
-

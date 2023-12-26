@@ -148,3 +148,18 @@ class GPPConverter(BaseVideoConverter):
         target_format = "3GPP"
         return super().convert(file_path, target_format, replace)
 
+
+class MKVConverter(BaseVideoConverter):
+    def convert(self, file_path, target_format="", replace: bool = False) -> Path:
+        """
+        Convert the given file to the MKV format.
+
+        Args:
+            file_path (str): The path to the file to be converted.
+            target_format (str, optional): The format to convert the file to. Always "MKV".
+
+        Returns:
+            The converted file.
+        """
+        target_format = "MKV"
+        return super().convert(file_path, target_format, replace)
