@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: UniConvert
-Version: 0.1.4
+Version: 0.1.5
 Description-Content-Type: text/markdown
 
 # Converters UniConvert Library
@@ -13,7 +13,7 @@ Welcome to the UniConvert Library documentation! The UniConvert Library is a Pyt
 
 ## How to Use
 
-1. Install the library: ``pip install conversores-dudu``
+1. Install the library: ``pip install uniconvert``
 2. Import the relevant converters in your Python script.
 3. Create instances of the converters and use their convert methods to perform conversions.
 
@@ -22,30 +22,28 @@ A seguir, apresentamos exemplos básicos de uso:
 
 ### Conversion of Images to PNG
 ```bash
-from duds_converters.converter import PNGConverter
+from uniconvert.converter import PNGConverter
 
 img_converter = PNGConverter()
 
 img_path = "path/to/image.jpg"
-# If you want that converted file replace the original then:
-converted_img_path = img_converter.convert(img_path, replace=True)
 
-# Else
 converted_img_path = img_converter.convert(img_path)
 
 print(f"Imagem convertida: {img_path} -> {converted_img_path}")
 ```
+If you want that converted file replace the original then you can use ``replace=True`` in convert method.
 
 ### Converting Videos to MP4
 ```bash
-from nome_do_seu_projeto.converters import MP4Converter
+from uniconvert.converters import MP4Converter
 
 # Cria uma instância do conversor
 video_converter = MP4Converter()
 
 # Converte um vídeo para MP4
 video_path = "caminho/do/video.avi"
-converted_video_path = video_converter.convert(video_path)
+converted_video_path = video_converter.convert(video_path, replace=True)
 
 print(f"Vídeo convertido: {video_path} -> {converted_video_path}")
 ```
@@ -61,6 +59,8 @@ The supported extensions for conversion include:
 - WMV
 - MPG
 - WEBM
+- MKV
+
 # Roadmap
 We are committed to expanding the functionalities of this library. Planned future enhancements include:
 
