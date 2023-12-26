@@ -17,14 +17,15 @@ A seguir, apresentamos exemplos básicos de uso:
 
 ### Conversion of Images to PNG
 ```bash
-from nome_do_seu_projeto.converters import PNGConverter
+from duds_converters.converter import PNGConverter
 
-
-# Cria uma instância do conversor
 img_converter = PNGConverter()
 
-# Converte uma imagem para PNG
-img_path = "caminho/da/imagem.jpg"
+img_path = "path/to/image.jpg"
+# If you want that converted file replace the original then:
+converted_img_path = img_converter.convert(img_path, replace=True)
+
+# Else
 converted_img_path = img_converter.convert(img_path)
 
 print(f"Imagem convertida: {img_path} -> {converted_img_path}")
@@ -43,6 +44,18 @@ converted_video_path = video_converter.convert(video_path)
 
 print(f"Vídeo convertido: {video_path} -> {converted_video_path}")
 ```
+
+All the other conversion classes follow the same pattern as ``MP4Converter()``. You just need to specify the extension name, for example, ``AVIConverter()``, ``GPP3Converter()``, and so on.
+
+The supported extensions for conversion include:
+
+- AVI
+- MOV
+- 3GPP
+- FLV
+- WMV
+- MPG
+- WEBM
 # Roadmap
 We are committed to expanding the functionalities of this library. Planned future enhancements include:
 
