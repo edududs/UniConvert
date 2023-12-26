@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from base_converters import BaseIMGConverter, BaseVideoConverter
+from uniconvert.base_converters import BaseIMGConverter, BaseVideoConverter
 
 
 class PNGConverter(BaseIMGConverter):
