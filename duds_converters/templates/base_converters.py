@@ -197,20 +197,26 @@ class BaseVideoConverter(ConverterMixin):
             The converted file.
         """
         directory, file_name, ext = split_file_path(file_path)
+        self._target_format = target_format = (
+            target_format.upper() if target_format else ext.upper()
+        )
         temp_file = self.generate_temp_out_path(file_path)
-
+        temp_file_str = str(temp_file)
         codec = self.codec_of(target_format)
-        video_clip = moviepy.VideoFileClip(file_path)
-        video_clip.write_videofile(temp_file, codec=codec)
-        video_clip.close()
+        with moviepy.VideoFileClip(file_path) as video_clip:
+            video_clip.write_videofile(temp_file_str, codec=codec)
         if not replace:
             print()
             print(f"Video convertido: {file_path} -> {temp_file}")
-            return temp_file
+            print()
+            return Path(temp_file)
         ext = f".{target_format.lower()}"
         new_path = build_file_path(directory, file_name, ext)
         os.rename(temp_file, new_path)
         os.remove(file_path)
+        print()
+        print(f"Video convertido: {file_path} -> {temp_file}")
+        print()
 
         return new_path
 
