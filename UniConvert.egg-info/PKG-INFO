@@ -2,39 +2,6 @@ Metadata-Version: 2.1
 Name: UniConvert
 Version: 0.1.1
 Description-Content-Type: text/markdown
-Requires-Dist: certifi==2023.11.17
-Requires-Dist: charset-normalizer==3.3.2
-Requires-Dist: colorama==0.4.6
-Requires-Dist: decorator==4.4.2
-Requires-Dist: docutils==0.20.1
-Requires-Dist: idna==3.6
-Requires-Dist: imageio==2.33.1
-Requires-Dist: imageio-ffmpeg==0.4.9
-Requires-Dist: importlib-metadata==7.0.1
-Requires-Dist: jaraco.classes==3.3.0
-Requires-Dist: keyring==24.3.0
-Requires-Dist: markdown-it-py==3.0.0
-Requires-Dist: mdurl==0.1.2
-Requires-Dist: more-itertools==10.1.0
-Requires-Dist: moviepy==1.0.3
-Requires-Dist: nh3==0.2.15
-Requires-Dist: numpy==1.26.2
-Requires-Dist: Pillow==10.1.0
-Requires-Dist: pkginfo==1.9.6
-Requires-Dist: proglog==0.1.10
-Requires-Dist: Pygments==2.17.2
-Requires-Dist: python-dotenv==1.0.0
-Requires-Dist: pywin32-ctypes==0.2.2
-Requires-Dist: readme-renderer==42.0
-Requires-Dist: requests==2.31.0
-Requires-Dist: requests-toolbelt==1.0.0
-Requires-Dist: rfc3986==2.0.0
-Requires-Dist: rich==13.7.0
-Requires-Dist: tqdm==4.66.1
-Requires-Dist: twine==4.0.2
-Requires-Dist: types-Pillow==10.1.0.2
-Requires-Dist: urllib3==2.1.0
-Requires-Dist: zipp==3.17.0
 
 # Converters UniConvert Library
 
