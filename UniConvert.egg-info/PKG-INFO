@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: UniConvert
-Version: 0.1.5
+Version: 0.2
 Description-Content-Type: text/markdown
 
 # Converters UniConvert Library
@@ -8,8 +8,8 @@ Description-Content-Type: text/markdown
 Welcome to the UniConvert Library documentation! The UniConvert Library is a Python tool designed for file conversion. It provides support for converting images to PNG format and videos to MP4 format. With this library, you can easily integrate file conversion capabilities into your projects.
 
 ## Main Features
-- **Image Conversion**: Convert images to the PNG format effortlessly.
-- **Video Conversion**: Convert videos to the MP4 format with ease.
+- **Image Conversion**: Convert images to the PNG, JPEG, WEBP, BMP, JPG, PDF, GIF and TIFF formats.
+- **Video Conversion**: Convert videos to the MP4, AVI, MOV, 3GPP, FLV, WMV, MPG, WEBM and MKV formats.
 
 ## How to Use
 
@@ -20,23 +20,35 @@ Welcome to the UniConvert Library documentation! The UniConvert Library is a Pyt
 
 A seguir, apresentamos exemplos básicos de uso:
 
-### Conversion of Images to PNG
+### Conversion of Images
 ```bash
-from uniconvert.converter import PNGConverter
+from uniconvert.img_converter import PNGConverter
 
-img_converter = PNGConverter()
+converter_img = PNGConverter()
 
 img_path = "path/to/image.jpg"
 
-converted_img_path = img_converter.convert(img_path)
+converted_img_path = converter_img.convert(img_path)
 
-print(f"Imagem convertida: {img_path} -> {converted_img_path}")
+print(f"Converted Image: {img_path} -> {converted_img_path}")
+```
+OR
+```bash
+from uniconvert import img_converter
+
+converter_img = img_converter.PNGConverter()
+
+img_path = "path/to/image.jpg"
+
+converted_img_path = converter_img.convert(img_path, replace=True)
+
+print(f"Converted Image: {img_path} -> {converted_img_path}")
 ```
 If you want that converted file replace the original then you can use ``replace=True`` in convert method.
 
-### Converting Videos to MP4
+### Converting Videos
 ```bash
-from uniconvert.converters import MP4Converter
+from uniconvert.video_converter import MP4Converter
 
 # Cria uma instância do conversor
 video_converter = MP4Converter()
@@ -45,12 +57,12 @@ video_converter = MP4Converter()
 video_path = "caminho/do/video.avi"
 converted_video_path = video_converter.convert(video_path, replace=True)
 
-print(f"Vídeo convertido: {video_path} -> {converted_video_path}")
+print(f"Converted Video: {video_path} -> {converted_video_path}")
 ```
 
-All the other conversion classes follow the same pattern as ``MP4Converter()``. You just need to specify the extension name, for example, ``AVIConverter()``, ``GPP3Converter()``, and so on.
+All the other conversion classes follow the same pattern. You just need to specify the extension name, for example, ``MP4Converter()``,``AVIConverter()``, ``GPP3Converter()``, and so on.
 
-The supported extensions for conversion include:
+### Video Supported Extensions:
 
 - AVI
 - MOV
@@ -60,6 +72,16 @@ The supported extensions for conversion include:
 - MPG
 - WEBM
 - MKV
+
+### Image Supported Extensions:
+- PNG
+- JPEG
+- WEBP
+- BMP
+- JPG
+- PDF
+- GIF
+- TIFF
 
 # Roadmap
 We are committed to expanding the functionalities of this library. Planned future enhancements include:

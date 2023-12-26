@@ -1,12 +1,12 @@
 from __future__ import annotations
 
 import os
-
 from abc import ABC, abstractmethod
 from pathlib import Path
 
 import moviepy.editor as moviepy
 from PIL import Image
+
 from uniconvert.utils import build_file_path, is_img, split_file_path
 
 
@@ -112,19 +112,13 @@ class BaseIMGConverter(ConverterMixin):
             None
         """
         super().__init__()
-        self._supported_extensions = self.get_supported_extensions()
+        self._supported_extensions = [
+            (ext, value) for (ext, value) in Image.registered_extensions().items()
+        ]
 
-    def get_supported_extensions(self) -> set:
-        """
-        Returns a set of supported extensions by Pillow.
-
-        Returns:
-            set: A set of supported extensions.
-        """
-        # Get the registered extensions from Pillow
-        extensions = Image.registered_extensions()
-
-        return set(extensions)
+    @property
+    def supported_extensions(self):
+        return self._supported_extensions
 
     def convert(self, file_path: str | Path, target_format=None, replace=False) -> Path:
         """
@@ -143,15 +137,19 @@ class BaseIMGConverter(ConverterMixin):
         directory, file_name, ext = split_file_path(file_path)
         # Se o formato alvo não for fornecido, tenta determinar automaticamente com base na extensão
         self._target_format = target_format = (
-            target_format.upper() if target_format else ext[1:].upper()
+            target_format.lower() if target_format else ext.lower()
         )
+        if target_format.startswith("."):
+            target_format.replace(".", "")
+
+        codec = self.codec_of(target_format)
 
         # Abre a imagem e a salva no formato alvo
         img = Image.open(build_file_path(directory, file_name, ext))
 
         # Salva como _converted.target_format por padrão
         temp_file = self.generate_temp_out_path(file_path)
-        img.save(temp_file, format=target_format)
+        img.save(temp_file, format=codec)
         img.close()
 
         if not replace:
@@ -165,6 +163,25 @@ class BaseIMGConverter(ConverterMixin):
         print(f"Imagem convertida: {file_path} -> {new_path}")
 
         return new_path
+
+    def codec_of(self, selected_format: str) -> str:
+        """
+        Convert the selected format to the corresponding codec.
+
+        Parameters:
+            selected_format (str): The format to be converted.
+
+        Returns:
+            str: The corresponding codec for the selected format.
+        """
+        for extension in self._supported_extensions:
+            if (
+                selected_format.lower() in extension[0]
+                or selected_format.upper() in extension[1]
+            ):
+                return extension[1]
+
+        raise ValueError(f"Formato {selected_format} não suportado.")
 
 
 class BaseVideoConverter(ConverterMixin):
@@ -183,6 +200,10 @@ class BaseVideoConverter(ConverterMixin):
         ("3GPP", "h263"),
         ("MKV", "libx264"),
     )
+
+    @property
+    def supported_extensions(self):
+        return self.CODECS
 
     def convert(
         self, file_path: str | Path, target_format: str = "", replace: bool = False
@@ -236,3 +257,8 @@ class BaseVideoConverter(ConverterMixin):
                 return extension[1]
 
         raise ValueError(f"Formato {selected_format} não suportado.")
+
+
+if __name__ == "__main__":
+    base = BaseIMGConverter()
+    print(base.supported_extensions)

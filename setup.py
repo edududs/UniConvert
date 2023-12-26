@@ -2,7 +2,7 @@ from setuptools import find_packages, setup
 
 from move_dist import move_dist
 
-version = "0.1.5"
+version = "0.2"
 name = "UniConvert"
 
 with open("README.md", "r", encoding="utf-8") as fh:
