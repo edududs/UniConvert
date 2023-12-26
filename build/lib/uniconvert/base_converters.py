@@ -7,7 +7,7 @@ from pathlib import Path
 
 import moviepy.editor as moviepy
 from PIL import Image
-from utils import build_file_path, is_img, split_file_path
+from uniconvert.utils import build_file_path, is_img, split_file_path
 
 
 class Conversor(ABC):
