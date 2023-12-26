@@ -1,6 +1,6 @@
-# Converters Dud's Library
+# Converters UniConvert Library
 
-Welcome to the Converters Dud's Library documentation! The Conversores Dudu Library is a Python tool designed for file conversion. It provides support for converting images to PNG format and videos to MP4 format. With this library, you can easily integrate file conversion capabilities into your projects.
+Welcome to the UniConvert Library documentation! The UniConvert Library is a Python tool designed for file conversion. It provides support for converting images to PNG format and videos to MP4 format. With this library, you can easily integrate file conversion capabilities into your projects.
 
 ## Main Features
 - **Image Conversion**: Convert images to the PNG format effortlessly.
