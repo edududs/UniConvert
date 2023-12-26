@@ -11,7 +11,6 @@ setup(
         "certifi==2023.11.17",
         "charset-normalizer==3.3.2",
         "colorama==0.4.6",
-        "conversores_dudu==0.1",
         "decorator==4.4.2",
         "docutils==0.20.1",
         "idna==3.6",
